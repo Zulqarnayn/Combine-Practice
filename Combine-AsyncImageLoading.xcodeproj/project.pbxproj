@@ -13,6 +13,11 @@
 		9AC09295292BAF9C00FBC92F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC09293292BAF9C00FBC92F /* Main.storyboard */; };
 		9AC09297292BAF9E00FBC92F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9AC09296292BAF9E00FBC92F /* Assets.xcassets */; };
 		9AC0929A292BAF9E00FBC92F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AC09298292BAF9E00FBC92F /* LaunchScreen.storyboard */; };
+		9AC092A2292BB25D00FBC92F /* Books.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC092A1292BB25D00FBC92F /* Books.swift */; };
+		9AC092A4292BB2A800FBC92F /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC092A3292BB2A800FBC92F /* ViewModel.swift */; };
+		9AC092A6292BB49600FBC92F /* CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC092A5292BB49600FBC92F /* CollectionView+Extension.swift */; };
+		9AC092A9292BB68D00FBC92F /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC092A7292BB68D00FBC92F /* CatCollectionViewCell.swift */; };
+		9AC092AA292BB68D00FBC92F /* CatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC092A8292BB68D00FBC92F /* CatCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,11 @@
 		9AC09296292BAF9E00FBC92F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9AC09299292BAF9E00FBC92F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9AC0929B292BAF9E00FBC92F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9AC092A1292BB25D00FBC92F /* Books.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Books.swift; sourceTree = "<group>"; };
+		9AC092A3292BB2A800FBC92F /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		9AC092A5292BB49600FBC92F /* CollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extension.swift"; sourceTree = "<group>"; };
+		9AC092A7292BB68D00FBC92F /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
+		9AC092A8292BB68D00FBC92F /* CatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +73,21 @@
 				9AC09296292BAF9E00FBC92F /* Assets.xcassets */,
 				9AC09298292BAF9E00FBC92F /* LaunchScreen.storyboard */,
 				9AC0929B292BAF9E00FBC92F /* Info.plist */,
+				9AC092A1292BB25D00FBC92F /* Books.swift */,
+				9AC092A3292BB2A800FBC92F /* ViewModel.swift */,
+				9AC092A5292BB49600FBC92F /* CollectionView+Extension.swift */,
+				9AC092AD292BB6C800FBC92F /* Cell */,
 			);
 			path = "Combine-AsyncImageLoading";
+			sourceTree = "<group>";
+		};
+		9AC092AD292BB6C800FBC92F /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9AC092A7292BB68D00FBC92F /* CatCollectionViewCell.swift */,
+				9AC092A8292BB68D00FBC92F /* CatCollectionViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AC0929A292BAF9E00FBC92F /* LaunchScreen.storyboard in Resources */,
+				9AC092AA292BB68D00FBC92F /* CatCollectionViewCell.xib in Resources */,
 				9AC09297292BAF9E00FBC92F /* Assets.xcassets in Resources */,
 				9AC09295292BAF9C00FBC92F /* Main.storyboard in Resources */,
 			);
@@ -138,8 +162,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AC092A4292BB2A800FBC92F /* ViewModel.swift in Sources */,
+				9AC092A9292BB68D00FBC92F /* CatCollectionViewCell.swift in Sources */,
+				9AC092A2292BB25D00FBC92F /* Books.swift in Sources */,
 				9AC09292292BAF9C00FBC92F /* ViewController.swift in Sources */,
 				9AC0928E292BAF9C00FBC92F /* AppDelegate.swift in Sources */,
+				9AC092A6292BB49600FBC92F /* CollectionView+Extension.swift in Sources */,
 				9AC09290292BAF9C00FBC92F /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
