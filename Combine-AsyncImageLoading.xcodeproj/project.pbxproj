@@ -18,6 +18,7 @@
 		9AC092A6292BB49600FBC92F /* CollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC092A5292BB49600FBC92F /* CollectionView+Extension.swift */; };
 		9AC092A9292BB68D00FBC92F /* CatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AC092A7292BB68D00FBC92F /* CatCollectionViewCell.swift */; };
 		9AC092AA292BB68D00FBC92F /* CatCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9AC092A8292BB68D00FBC92F /* CatCollectionViewCell.xib */; };
+		F2EE4161293384800035E17D /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2EE4160293384800035E17D /* ThemeManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9AC092A5292BB49600FBC92F /* CollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CollectionView+Extension.swift"; sourceTree = "<group>"; };
 		9AC092A7292BB68D00FBC92F /* CatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatCollectionViewCell.swift; sourceTree = "<group>"; };
 		9AC092A8292BB68D00FBC92F /* CatCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CatCollectionViewCell.xib; sourceTree = "<group>"; };
+		F2EE4160293384800035E17D /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				9AC092A3292BB2A800FBC92F /* ViewModel.swift */,
 				9AC092A5292BB49600FBC92F /* CollectionView+Extension.swift */,
 				9AC092AD292BB6C800FBC92F /* Cell */,
+				F2EE4160293384800035E17D /* ThemeManager.swift */,
 			);
 			path = "Combine-AsyncImageLoading";
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				9AC092A4292BB2A800FBC92F /* ViewModel.swift in Sources */,
 				9AC092A9292BB68D00FBC92F /* CatCollectionViewCell.swift in Sources */,
 				9AC092A2292BB25D00FBC92F /* Books.swift in Sources */,
+				F2EE4161293384800035E17D /* ThemeManager.swift in Sources */,
 				9AC09292292BAF9C00FBC92F /* ViewController.swift in Sources */,
 				9AC0928E292BAF9C00FBC92F /* AppDelegate.swift in Sources */,
 				9AC092A6292BB49600FBC92F /* CollectionView+Extension.swift in Sources */,
