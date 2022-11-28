@@ -8,7 +8,7 @@
 import UIKit
 import Combine
 
-class ViewController: UIViewController {
+class CatPhotoDisplayViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     var cancellables = Set<AnyCancellable>()
     let themeManager: ThemeManager
     
-    @Published var sliderValue: Int = 20
+    @Published var sliderValue: Float = 20
     
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Book>
     typealias Datasource = UICollectionViewDiffableDataSource<Section, Book>
@@ -71,13 +71,12 @@ class ViewController: UIViewController {
         
         $sliderValue
             .map { value in
-                return "# of cat to be fetched [1 - 20] now - \(value)"
+                return "# of cat to be fetched [1 - 20] now - \(Int(value))"
             }
             .assign(to: \.text, on: catLimitLabel)
             .store(in: &cancellables)
         
         $sliderValue
-            .map { Float($0) }
             .assign(to: \.value, on: catSlider)
             .store(in: &cancellables)
     }
@@ -114,7 +113,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loadNext(_ sender: UIButton) {
-        catViewModel.fetchNextPage(limit: sliderValue)
+        catViewModel.fetchNextPage(limit: Int(sliderValue))
     }
     
     @IBAction func didTapSwitch(_ sender: UISwitch) {
@@ -129,7 +128,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func sliderChanged(_ sender: UISlider) {
-        sliderValue = Int(sender.value)
+        sliderValue = sender.value
     }
     
 }

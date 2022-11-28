@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
        
         let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(identifier: "ViewController") { coder in
-            ViewController(coder: coder, themeManager: self.themeManager)
+            CatPhotoDisplayViewController(coder: coder, themeManager: self.themeManager)
         }
         
         window?.rootViewController = viewController
