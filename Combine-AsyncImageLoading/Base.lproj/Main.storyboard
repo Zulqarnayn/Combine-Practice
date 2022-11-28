@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -18,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0pp-YK-UlL">
-                                <rect key="frame" x="0.0" y="97" width="390" height="713"/>
+                                <rect key="frame" x="0.0" y="165" width="390" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CjC-7s-nqe">
                                     <size key="itemSize" width="128" height="128"/>
@@ -37,32 +38,59 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-G3-EXs">
-                                <rect key="frame" x="15" y="47" width="51" height="31"/>
-                                <connections>
-                                    <action selector="didTapSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="pLy-4B-JZX"/>
-                                </connections>
-                            </switch>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4F-m6-6HT">
-                                <rect key="frame" x="273.66666666666669" y="47" width="101.33333333333331" height="35"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Load Next"/>
-                                <connections>
-                                    <action selector="loadNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8u-B0-dHs"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IW4-Ay-cgn">
+                                <rect key="frame" x="15" y="47" width="360" height="40"/>
+                                <subviews>
+                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dht-G3-EXs">
+                                        <rect key="frame" x="0.0" y="0.0" width="51" height="40"/>
+                                        <connections>
+                                            <action selector="didTapSwitch:" destination="BYZ-38-t0r" eventType="valueChanged" id="pLy-4B-JZX"/>
+                                        </connections>
+                                    </switch>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b4F-m6-6HT">
+                                        <rect key="frame" x="258.66666666666669" y="0.0" width="101.33333333333331" height="40"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Load Next"/>
+                                        <connections>
+                                            <action selector="loadNext:" destination="BYZ-38-t0r" eventType="touchUpInside" id="r8u-B0-dHs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="jb2-jg-BWr"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="s4V-Cr-EHX">
+                                <rect key="frame" x="15" y="87" width="360" height="68"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of cat to be fetched [1 - 20] now - 20" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wmx-NO-q8z">
+                                        <rect key="frame" x="0.0" y="0.0" width="360" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="18" minValue="1" maxValue="20" translatesAutoresizingMaskIntoConstraints="NO" id="Hu1-9I-BHK">
+                                        <rect key="frame" x="-2" y="38" width="364" height="31"/>
+                                        <connections>
+                                            <action selector="sliderChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="WFN-mS-4tu"/>
+                                        </connections>
+                                    </slider>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Dht-G3-EXs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="3pW-qS-sZU"/>
+                            <constraint firstItem="IW4-Ay-cgn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="7mH-oI-lKE"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0pp-YK-UlL" secondAttribute="bottom" id="7mq-iD-jhn"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b4F-m6-6HT" secondAttribute="trailing" constant="15" id="BsC-pa-BIS"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="0pp-YK-UlL" secondAttribute="trailing" id="TPg-3O-F50"/>
-                            <constraint firstItem="b4F-m6-6HT" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Vz2-TR-A48"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="s4V-Cr-EHX" secondAttribute="trailing" constant="15" id="TbJ-de-ee4"/>
                             <constraint firstItem="0pp-YK-UlL" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="XlA-TT-TRc"/>
-                            <constraint firstItem="0pp-YK-UlL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="50" id="fRO-64-QgA"/>
-                            <constraint firstItem="Dht-G3-EXs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="wv2-13-ta3"/>
+                            <constraint firstItem="IW4-Ay-cgn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="YyV-Jv-1sn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IW4-Ay-cgn" secondAttribute="trailing" constant="15" id="e32-pw-fNJ"/>
+                            <constraint firstItem="0pp-YK-UlL" firstAttribute="top" secondItem="s4V-Cr-EHX" secondAttribute="bottom" constant="10" id="kPz-4f-YcN"/>
+                            <constraint firstItem="s4V-Cr-EHX" firstAttribute="top" secondItem="IW4-Ay-cgn" secondAttribute="bottom" id="mMO-mg-c8U"/>
+                            <constraint firstItem="s4V-Cr-EHX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="uMr-JH-f4n"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="7DZ-qf-fK2">
@@ -79,6 +107,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="catLimitLabel" destination="wmx-NO-q8z" id="os2-r3-ACy"/>
+                        <outlet property="catSlider" destination="Hu1-9I-BHK" id="Ti9-83-Ikl"/>
                         <outlet property="collectionView" destination="0pp-YK-UlL" id="J07-1O-bPt"/>
                     </connections>
                 </viewController>

@@ -15,9 +15,9 @@ class CatViewModel {
 	var currentPage = -1
 	var cancellables = Set<AnyCancellable>()
 	
-	func fetchNextPage() {
+    func fetchNextPage(limit: Int = 20) {
 		currentPage += 1
-		let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=20&page=\(currentPage)")!
+		let url = URL(string: "https://api.thecatapi.com/v1/images/search?limit=\(limit)&page=\(currentPage)&order=DESC")!
 		print(currentPage)
 		URLSession.shared.dataTaskPublisher(for: url)
 			.sink(receiveCompletion: { _ in

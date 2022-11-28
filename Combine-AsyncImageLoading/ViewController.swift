@@ -12,9 +12,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var catLimitLabel: UILabel!
+    @IBOutlet weak var catSlider: UISlider!
+    
     let catViewModel = CatViewModel()
     var cancellables = Set<AnyCancellable>()
     let themeManager: ThemeManager
+    
+    @Published var sliderValue: Int = 20
     
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Book>
     typealias Datasource = UICollectionViewDiffableDataSource<Section, Book>
@@ -63,6 +68,18 @@ class ViewController: UIViewController {
                     }
                 }
             }.store(in: &cancellables)
+        
+        $sliderValue
+            .map { value in
+                return "# of cat to be fetched [1 - 20] now - \(value)"
+            }
+            .assign(to: \.text, on: catLimitLabel)
+            .store(in: &cancellables)
+        
+        $sliderValue
+            .map { Float($0) }
+            .assign(to: \.value, on: catSlider)
+            .store(in: &cancellables)
     }
     
     func  makeDataSource() -> Datasource {
@@ -97,8 +114,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func loadNext(_ sender: UIButton) {
-        
-        catViewModel.fetchNextPage()
+        catViewModel.fetchNextPage(limit: sliderValue)
     }
     
     @IBAction func didTapSwitch(_ sender: UISwitch) {
@@ -111,6 +127,11 @@ class ViewController: UIViewController {
         sceneDelegate.themeManager.shouldApplyDarkMode.toggle()
         sceneDelegate.themeManager.shouldOverrideSystemSetting.toggle()
     }
+    
+    @IBAction func sliderChanged(_ sender: UISlider) {
+        sliderValue = Int(sender.value)
+    }
+    
 }
 
 
