@@ -8,39 +8,33 @@
 import Foundation
 import Combine
 
+struct AppString {
+    static let shouldOverrideSystemSetting = "ThemeManager.shouldOverrideSystemSetting"
+    static let shouldApplyDarkMode = "ThemeManager.shouldApplyDarkMode"
+}
+
 class ThemeManager {
     enum PreferredUserInterfaceStyle {
         case dark, light, system
     }
     
-    lazy private(set) var themeSubject: CurrentValueSubject<PreferredUserInterfaceStyle, Never> = {
-        var preferredStyle = PreferredUserInterfaceStyle.system
-        
-        if shouldOverrideSystemSetting {
-            preferredStyle = shouldApplyDarkMode ? .dark : .light
-        }
-        return CurrentValueSubject<PreferredUserInterfaceStyle, Never>(preferredStyle)
-    }()
+    @Published var themeStyle: PreferredUserInterfaceStyle = .system
     
     var shouldOverrideSystemSetting: Bool {
-        get { UserDefaults.standard.bool(forKey: "ThemeManager.shouldOverrideSystemSetting") }
-        set { UserDefaults.standard.set(newValue, forKey: "ThemeManager.shouldOverrideSystemSetting")
-            updateThemeSubject()
+        get { UserDefaults.standard.bool(forKey: AppString.shouldOverrideSystemSetting) }
+        set { UserDefaults.standard.set(newValue, forKey: AppString.shouldOverrideSystemSetting)
+            updateThemeStyle()
         }
     }
     
     var shouldApplyDarkMode: Bool {
-        get { UserDefaults.standard.bool(forKey: "ThemeManager.shouldApplyDarkMode") }
-        set { UserDefaults.standard.set(newValue, forKey: "ThemeManager.shouldApplyDarkMode")
-            updateThemeSubject()
+        get { UserDefaults.standard.bool(forKey: AppString.shouldApplyDarkMode) }
+        set { UserDefaults.standard.set(newValue, forKey: AppString.shouldApplyDarkMode)
+            updateThemeStyle()
         }
     }
     
-    private func updateThemeSubject() {
-        if shouldOverrideSystemSetting {
-            themeSubject.value = shouldApplyDarkMode ? .dark : .light
-        } else {
-            themeSubject.value = .system
-        }
+    private func updateThemeStyle() {
+        themeStyle = shouldOverrideSystemSetting ? ( shouldApplyDarkMode ? .dark : .light) : .system
     }
 }
